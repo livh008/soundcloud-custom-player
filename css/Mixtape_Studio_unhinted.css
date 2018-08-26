@@ -1,0 +1,46 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3489013, 2017-11-26T09:27:57-0500
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: GistExtrabold by Yellow Design Studio
+ * URL: https://www.myfonts.com/fonts/yellow-design/gist/extrabold/
+ * 
+ * Webfont: GistRegular by Yellow Design Studio
+ * URL: https://www.myfonts.com/fonts/yellow-design/gist/regular/
+ * 
+ * Webfont: GistUprightExtrabold by Yellow Design Studio
+ * URL: https://www.myfonts.com/fonts/yellow-design/gist/upright-extrabold/
+ * 
+ * Webfont: GistUprightRegular by Yellow Design Studio
+ * URL: https://www.myfonts.com/fonts/yellow-design/gist/upright-regular/
+ * 
+ * 
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3489013
+ * Licensed pageviews: 500,000
+ * Webfonts copyright: Copyright (c) 2014 by Yellow Design Studio. All rights reserved.
+ * 
+ * © 2017 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/353cf5");
+
+  
+@font-face {font-family: 'GistExtrabold';src:url('webfonts/353CF5_0_unhinted_0.woff2') format('woff2'),url('webfonts/353CF5_0_unhinted_0.woff') format('woff'),url('webfonts/353CF5_0_unhinted_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'GistRegular';src:url('webfonts/353CF5_1_unhinted_0.woff2') format('woff2'),url('webfonts/353CF5_1_unhinted_0.woff') format('woff'),url('webfonts/353CF5_1_unhinted_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'GistUprightExtrabold';src:url('webfonts/353CF5_2_unhinted_0.woff2') format('woff2'),url('webfonts/353CF5_2_unhinted_0.woff') format('woff'),url('webfonts/353CF5_2_unhinted_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'GistUprightRegular';src:url('webfonts/353CF5_3_unhinted_0.woff2') format('woff2'),url('webfonts/353CF5_3_unhinted_0.woff') format('woff'),url('webfonts/353CF5_3_unhinted_0.ttf') format('truetype');}
+ 

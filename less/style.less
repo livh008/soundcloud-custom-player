@@ -1,0 +1,489 @@
+/* LAYOUT *
+-----------------------------------------------*/
+.cf:before,
+.cf:after {
+		content: " "; /* 1 */
+		display: table; /* 2 */
+}
+
+.cf:after {
+		clear: both;
+}
+
+.cf {
+		*zoom: 1;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+@small: ~"screen and (min-width: 20em)";
+@medium: ~"screen and (min-width: 38em)";
+@large: ~"screen and (min-width: 48em)";
+@extra-large: ~"screen and (min-width: 58em)";
+@max: ~"screen and (min-width: 68em)";
+
+/* COLORS *
+-----------------------------------------------*/
+@white: #f8f8f8;
+@red: #dd4444;
+@red-dark: #bf3d3f;
+@red-darker: #9c3538;
+@black: #1f1f1f;
+@grey: #4d4d4d;
+
+body {
+	margin: 0;
+	background-color: @grey;
+	color: white;
+	text-align: center;
+	.display;
+
+	@media @medium {
+		font-size: 112.5%;
+	}
+}
+
+.wrapper {
+	width: 90%;
+	max-width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+p.small {
+	font-size: 0.8em;
+}
+
+a {
+	color: @red-darker;
+
+	&:hover {
+		color: @red-dark
+	}
+}
+
+a.sc-player,
+.button {
+	display: inline-block;
+	background: @red-dark;
+	background: rgba(19, 19, 19, 0.14);
+	border-radius: 4px;
+	padding: 1em 1.5em;
+	text-align: center;
+	text-decoration: none;
+	color: @white;
+	font-size: 1.5em;
+	.transition;
+
+	&:hover {
+		background: @red-darker;
+		background: rgba(19, 19, 19, 0.24);
+		color: @white;
+	}
+}
+
+.main {
+	margin-bottom: 4em;
+}
+
+.transition {
+	transition: all 0.3s ease-out;
+}
+
+/* FONTS *
+-----------------------------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Sacramento|Montserrat);
+
+.display {
+	font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+	margin-top: 50px;
+	.display;
+	text-transform: uppercase;
+	font-size: 2em;
+	line-height: 1;
+	
+	-webkit-font-smoothing: antialiased;
+	position: relative;
+
+	@media @small {
+		font-size: 2.5em;
+	}
+	
+	@media @medium {
+		font-size: 4.5em;
+		margin-top: 100px;
+	}
+	
+	@media @max {
+		font-size: 6em;
+	}
+}
+
+
+/* SOUNDCLOUD PLAYER *
+-----------------------------------------------*/
+.sc-player {
+	position: relative;
+	margin-bottom: 2em;
+	.cf;
+
+	a {
+		text-decoration: none;
+		color: #fff;
+	}
+
+	ol,
+	li {
+		margin: 0;
+		padding: 0;
+		list-style-position: inside;
+	}
+}
+
+/* Artworks */
+.sc-player .sc-artwork-list{
+	display: none;
+	float: left;
+	width: 40%;
+	margin-bottom: 3%;
+	background-color: transparent;
+	list-style-type: none;
+	position: relative;
+	height: 100%;
+
+	li {
+		list-style-type: none;
+		display: none;
+	}
+	
+	li.active{
+		list-style-type: none;
+		display: block;
+	}
+}
+
+.sc-player .sc-artwork-list li img, 
+.sc-player .sc-artwork-list li div {
+	list-style-type: none;
+	width: 100%;
+	height: auto;
+}
+
+/* controls */
+.sc-player .sc-controls{
+	display: block;
+}
+
+.sc-player .sc-controls a {
+	text-indent: -9999px;
+	content: '';
+	display: block;
+	background: @red-dark;
+	background: rgba(19, 19, 19, 0.12);
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+	position: relative;
+	.transition;
+	
+	@media @medium {
+		width: 220px;
+		height: 220px;
+	}
+	
+	&:hover {
+		background: @red-darker;
+		background: rgba(19, 19, 19, 0.22);
+	}
+	
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 50%;
+		margin-top: -50px;
+		left: 50%;
+		margin-left: -50px;
+		z-index: 1;
+		//background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/35376/play-pause.png');
+		background: url('http://nicholaspetersen.is/wp-content/themes/v3/images/play.png');
+		background-position: top;
+		background-size: 100px auto;
+		border-radius: 50%;
+		width: 100px;
+		height: 100px;
+		
+		@media @medium {
+			width: 180px;
+			height: 180px;
+			margin-top: -90px;
+			margin-left: -90px;
+			background-size: 180px auto;
+		}
+	}
+}
+
+.sc-player .sc-controls a.sc-pause:after {
+	background-position: bottom;
+}
+
+.sc-scrubber .sc-time-indicators{
+	background: @red-darker;
+	background: rgba(19, 19, 19, 0.22);
+	color: #fff;
+	border-radius: 4px;
+	padding: 7px;
+	text-align: right;
+}
+
+.sc-player .sc-controls a.sc-pause {
+	display: none;
+}
+
+.sc-player.playing .sc-controls a.sc-play {
+	display: none;
+}
+
+.sc-player.playing .sc-controls a.sc-pause {
+	display: block;
+}
+
+/* scrubber */
+
+.sc-scrubber {
+	position: relative;
+	float: right;
+	width: 100%;
+	margin: 0.5em 0;
+	border-radius: 4px;
+
+	@media @medium {
+		//margin-top: 20px;
+	}
+
+	.sc-time-span {
+		height: 100px;
+		position: relative;
+	}
+
+	.sc-buffer, 
+	.sc-played {
+		height: 100px;
+		position: absolute;
+		top: 0;
+	}
+
+	.sc-time-indicators{
+		position: absolute;
+		right: 0;
+		top: -48px;
+	}
+
+	.sc-time-span {
+		//background-color: #666;
+		border-radius: 4px;
+		overflow: hidden;
+	}
+
+	.sc-volume-slider {
+		background-color: @red-dark;
+		background-color: rgba(19,19,19,0.12);
+		border-radius: 2px;
+	}
+
+	.sc-volume-slider .sc-volume-status{
+		background-color: @red-darker;
+		background-color: rgba(19,19,19,0.22);
+		border-right: 1px solid @red-darker;
+		border-right: 1px solid rgba(19,19,19,0.22);
+		//border-right: 1px solid white;
+	}
+
+	.sc-waveform-container {
+		z-index: 800;
+		width: 100%;
+		position: absolute;
+	}
+
+	.sc-time-span img {
+		height: 100px;
+		width: 100%;
+		border-radius: 4px;
+	}
+
+	.sc-buffer {
+		background: @red-dark;
+		background: rgba(19, 19, 19, 0.12);
+		z-index: 1;
+		position: absolute;
+	}
+
+	.sc-played {
+		background: @red-darker;
+		background: rgba(19, 19, 19, 0.22);
+		z-index: 799;
+	}
+}
+
+/* volume control */
+.sc-volume-slider {
+	top: -35px;
+	left: 0px;
+	position: absolute;
+	width: 150px;
+	height: 20px;
+	background-color: white;
+
+	.sc-volume-status{
+		position: absolute;
+		width: 0%;
+		height: 20px;
+		top: 0;
+		left: 0;
+	}
+}
+
+/* tracks */
+
+/* Track listings*/
+.sc-player ol.sc-trackslist {
+	position: relative;
+	width: 100%;
+	overflow: auto;
+
+	li {
+		width: 100%;
+		cursor: pointer;
+		margin-bottom: 0.5em;
+		padding: 4%;
+		background: @red-dark;
+		background: rgba(19, 19, 19, 0.12);
+		color: white;
+		border-radius: 4px;
+		transition: background 0.3s ease-in;
+		text-align: left;
+
+		@media @medium {
+			padding: 2%;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		a {
+			font-size: 1.125em;
+			
+			@media @small {
+
+			}
+
+			@media @medium {
+				font-size: 2em;
+			}
+		}
+
+		&:hover {  
+			background: @red-darker;
+			background: rgba(19, 19, 19, 0.22);
+		}
+
+		&.active{  
+			background: @red-darker;
+			background: rgba(19, 19, 19, 0.32);
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+
+			 a {
+				color: #fff;
+			}
+		}
+	}
+}
+
+.sc-track-duration {
+	float: right;
+	margin-top: 0.25em;
+
+	@media @medium {
+		margin-top: 0.5em;
+	}
+}
+
+/* Track info*/
+
+.sc-player .sc-info {
+	position: relative;
+	margin-bottom: 2em;
+	padding: 1% 3%;
+	
+	@media @medium {
+		margin-top: 1em;
+		margin-bottom: 3em;
+	}
+
+	h3 {
+		font-size: 2em;
+		margin-bottom: 0.5em;
+	}
+	
+	h4 {
+		display: none;
+	}
+ 
+	.sc-info a {
+		color: #fff;
+	}
+}
+
+p {
+	max-width: 38em;
+	max-width: 38rem;
+	margin: 0 auto 1em;
+	line-height: 1.5;
+	text-align: left;
+}
+
+.sc-player .sc-info-toggle,
+.sc-player .sc-info-close {
+	display: none;
+}
+
+/* utilities */
+
+.sc-player .hidden {
+	//display: none;
+}
+
+.sc-player-engine-container{
+	width: 1px;
+	height: 1px;
+	position: fixed;
+	top: 2px;
+	left: 2px;
+}
+
+.sc-player .sc-info-toggle{
+	background: #22B573;
+	color: #fff;
+	border-radius: 4px;
+	padding: 4px;
+}
+
+.sc-player .sc-info-toggle:hover{
+	background: #333;
+	color: #fff;
+}
+
+.sc-player .sc-info-close{
+	background: #22B573;
+	border-radius: 4px;
+	padding: 2px 4px;
+	font-weight: bold;
+}
