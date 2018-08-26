@@ -12,13 +12,9 @@
     clear: both;
 }
 .cf {
-  *zoom: 1;
     border: 0;
 }
-* {
-    /* border: 0; */
-    /* box-sizing: border-box; */
-}
+
 body section {
     display: block;
     -webkit-box-sizing: border-box;
@@ -52,7 +48,7 @@ body {
     display: block;
 	margin-left: 22px;
 }
-p.small {
+.small {
     font-size: 10px;
 }
 a {
@@ -69,10 +65,6 @@ a.sc-player,
     background: rgba(19, 19, 19, 0.14);
     border-radius: 4px;
     padding: 4px;
-    /* [disabled]text-align: center; */
-    /* [disabled]text-decoration: none; */
-    /* [disabled]color: #ffffff; */
-    /* [disabled]font-size: 15px; */
     transition: all 0.3s ease-out;
 }
 a.sc-player:hover,
@@ -82,7 +74,6 @@ a.sc-player:hover,
 }
 .main {
     margin-bottom: 1em;
-    /* text-align: center; */
 }
 
 .transition {
@@ -123,14 +114,11 @@ a.sc-player:hover,
     margin-top: -320px;
 	max-width: 445px;
     z-index: 100;
-    margin-left: auto;
-    margin-rigt: auto;
     display: flex;
     flex-direction: column;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    /* text-align: center; */
 }
 .sc-player a {
     text-decoration: none;
@@ -188,7 +176,7 @@ a.sc-player:hover,
   display: none;
 }
 .sc-player.playing .sc-pause {
-  display: block !important;
+  display: block;
 }
 .sc-player.playing .sc-played {
   min-width: 1px;
@@ -556,29 +544,27 @@ p {
 	height: 160px;
 }
 
-.cassette1 {
-    background-image: url(../images/reading.png);
-    width: 475px;
+#cassette {
+	width: 475px;
     height: 309px;
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
-	background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-size: contain;
+    filter: drop-shadow( 30px 20px 5px rgba(1,1,1,0.15));
+	
+}
+
+
+.cassette1 {
+    background-image: url(../images/reading.png);
 }
 
 .cassette2 {
 	background-image: url(../images/va_va_voom.png);
-	width: 475px;
-	height: 309px;
-	border-style: none;
-	border: 0;
-	-webkit-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    background-repeat: no-repeat;
-    background-size: contain;
 }
+
 
 @-webkit-keyframes rotateReels {
 		from {
