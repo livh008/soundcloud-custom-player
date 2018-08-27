@@ -504,7 +504,7 @@
         $player = $('<div class="sc-player loading"></div>').data('sc-player', {id: playerId}),
         $artworks = $('<ol class="sc-artwork-list"></ol>').appendTo($player),
         $controls = $('<div class="sc-controls"></div>').appendTo($player),
-        $info = $('<div class="sc-info"><h3 class="GistUprightRegular"></h3><h4></h4><p></p><a href="#" class="sc-info-close">X</a></div>').appendTo($player);
+        $info = $('<div class="sc-info"><h3></h3><h4></h4><p></p><a href="#" class="sc-info-close">X</a></div>').appendTo($player);
 	    
 	  
         // add the classes of the source node to the player itself
