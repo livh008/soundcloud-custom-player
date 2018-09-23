@@ -30,7 +30,6 @@ body {
     color: white;
     font-family: hatch, sans-serif;
     border-style: none;
-    border: 0;
 	width: 310px;
     text-align: center;
     display: inline-block;
@@ -55,7 +54,7 @@ a:hover {
     border: 0;
     color: #CE0065;
 }
-a.sc-player,
+sc-player,
 .button {
     display: inline-block;
     background: rgba(19, 19, 19, 0.14);
@@ -63,7 +62,7 @@ a.sc-player,
     padding: 4px;
     transition: all 0.3s ease-out;
 }
-a.sc-player:hover,
+sc-player:hover,
 .button:hover {
   background: rgba(19, 19, 19, 0.24);
   color: #f8f8f8;
@@ -139,18 +138,10 @@ a.sc-player:hover,
 .sc-player .sc-artwork-list li {
     list-style-type: none;
     display: none;
+	height: auto;
+	width: 100%;
 }
-.sc-player .sc-artwork-list li.active {
-  list-style-type: none;
-  display: none;
-}
-.sc-player .sc-artwork-list li img,
-.sc-player .sc-artwork-list li div {
-  list-style-type: none;
-  width: 100%;
-  height: auto;
-  display: none;
-}
+
 /* controls */
 .sc-player .sc-controls {
   display: block;
@@ -188,19 +179,7 @@ a.sc-player:hover,
     position: relative;
     transition: all 0.3s ease-out;
 }
-/*.sc-player .sc-controls a:hover {
-    background: #9c3538;
-    background: rgba(19, 19, 19, 0.22);
-}*/
-/*.sc-player .sc-controls a:after {
-    display: inline;
-    position: relative;
-    z-index: 1;
-    background: url(../images/play_button.png);
-    background-position: center;
-    border-radius: 50%;
-    clear: both;
-}*/
+
 .sc-player .sc-controls a.sc-pause:after {
   background-position: center;
 }
@@ -212,19 +191,24 @@ a.sc-player:hover,
     padding: 7px;
     text-align: right;
     font-size: x-small;
+	position: absolute;
+  	right: 0;
+  	margin-top: 60px;
+  	margin-right: -13px;
 }
+
 
 .sc-time-indicators {
 	margin-top:0px;
 	color: #00cccc;
 }
-.sc-player .sc-controls a.sc-pause {
+.sc-player .sc-controls .sc-pause {
   display: none;
 }
-.sc-player.playing .sc-controls a.sc-play {
+.sc-player.playing .sc-controls .sc-play {
   display: none;	
 }
-.sc-player.playing .sc-controls a.sc-pause {
+.sc-player.playing .sc-controls .sc-pause {
   display: block;
 }
 
@@ -248,22 +232,10 @@ a.sc-player:hover,
     position: relative;
 }
 
-.sc-scrubber .sc-time-indicators {
-  position: absolute;
-  right: 0;
-  margin-top: 60px;
-  margin-right: -13px;
-}
-.sc-scrubber .sc-volume-slider {
-  background-color: #bf3d3f;
+.sc-scrubber .sc-volume-slider .sc-volume-status {
+  border-right: 1px solid rgba(19, 19, 19, 0.22);
   background-color: rgba(19, 19, 19, 0.12);
   border-radius: 2px;
-}
-.sc-scrubber .sc-volume-slider .sc-volume-status {
-  background-color: #9c3538;
-  background-color: rgba(19, 19, 19, 0.22);
-  border-right: 1px solid #9c3538;
-  border-right: 1px solid rgba(19, 19, 19, 0.22);
 }
 
 .sc-scrubber .sc-waveform-container {
@@ -350,48 +322,38 @@ animation: fadeIn 2s;
 
 /* tracks */
 /* Track listings*/
-.sc-player ol.sc-trackslist {
-  position: relative;
-  width: 100%;
-  overflow: visible;
-}
+
 .sc-player ol.sc-trackslist li {
   width: 98%;
+  position: relative;
+  overflow: visible;
   cursor: pointer;
   margin-bottom: 0.5em;
   padding-top: 2%;
   padding-bottom: 2%;
   padding-left: 15px;
   padding-right: 15px;
-  background: #bf3d3f;
   background: rgba(19, 19, 19, 0.2);
   color: white;
   border-radius: 4px;
   transition: background 0.3s ease-in;
   text-align: left;
+  font-size: 15px;
 }
 .sc-player ol.sc-trackslist li:last-child {
   margin-bottom: 0;
 }
-.sc-player ol.sc-trackslist li a {
-  font-size: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-/*@media screen and (min-width: 38em) {
+
+*@media screen and (min-width: 38em) {
   .sc-player ol.sc-trackslist li a {
     font-size: 15px;
   }
 }*/
 .sc-player ol.sc-trackslist li:hover {
-  background: #9c3538;
   background: rgba(19, 19, 19, 0.22);
 }
 .sc-player ol.sc-trackslist li.active {
-  background: #9c3538;
   background: rgba(19, 19, 19, 0.32);
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
   border-radius:4px;
 }
 .sc-player ol.sc-trackslist li.active a {
@@ -431,7 +393,6 @@ animation: fadeIn 2s;
 
 p {
     max-width: 38em;
-    max-width: 38rem;
     margin: 0 auto 1em;
     line-height: 1.5;
     border: 0;
@@ -499,12 +460,6 @@ p {
 	-webkit-animation-fill-mode: both;
 	-webkit-animation-play-state: paused;
 	-webkit-animation-timing-function: linear;
-	-moz-animation-name: rotateReels;
-	-moz-animation-duration: 4s;
-	-moz-animation-iteration-count: infinite;
-	-moz-animation-fill-mode: both;
-	-moz-animation-play-state: paused;
-	-moz-animation-timing-function: linear;
 	width: 160px;
 	height: 160px;
 }
@@ -523,12 +478,6 @@ p {
 	-webkit-animation-fill-mode: both;
 	-webkit-animation-play-state: running;
 	-webkit-animation-timing-function: linear;
-	-moz-animation-name: rotateReels;
-	-moz-animation-duration: 4s;
-	-moz-animation-iteration-count: infinite;
-	-moz-animation-fill-mode: both;
-	-moz-animation-play-state: running;
-	-moz-animation-timing-function: linear;
 	width: 160px;
 	height: 160px;
 }
