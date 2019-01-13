@@ -675,14 +675,40 @@
 //	  document.getElementById("test").innerHTML = trackId;
 	    switch (trackId) {
 			case 0:
-				document.getElementById("test").innerHTML = "vo demo reel is playing";
-				$("div").filter("#cassette").removeClass("cassette2");
 				$("div").filter("#cassette").addClass("cassette1");
+				$("div").filter("#cassette").removeClass("cassette2");
+				$("div").filter("#cassette").removeClass("cassette3");
+				$("div").filter("#cassette").removeClass("cassette4");
+				$("div").filter("#cassette").removeClass("cassette5");
 				break;
 			case 1:
-				document.getElementById("test").innerHTML = "morissimo is playing";
 				$("div").filter("#cassette").removeClass("cassette1");
 				$("div").filter("#cassette").addClass("cassette2");
+				$("div").filter("#cassette").removeClass("cassette3");
+				$("div").filter("#cassette").removeClass("cassette4");
+				$("div").filter("#cassette").removeClass("cassette5");
+				break;
+			case 2:
+				$("div").filter("#cassette").removeClass("cassette1");
+				$("div").filter("#cassette").removeClass("cassette2");
+				$("div").filter("#cassette").addClass("cassette3");
+				$("div").filter("#cassette").removeClass("cassette4");
+				$("div").filter("#cassette").removeClass("cassette5");
+				break;
+			case 3:
+				$("div").filter("#cassette").removeClass("cassette1");
+				$("div").filter("#cassette").removeClass("cassette2");
+				$("div").filter("#cassette").removeClass("cassette3");
+				$("div").filter("#cassette").addClass("cassette4");
+				$("div").filter("#cassette").removeClass("cassette5");
+				break;
+			case 4:
+				$("div").filter("#cassette").removeClass("cassette1");
+				$("div").filter("#cassette").removeClass("cassette2");
+				$("div").filter("#cassette").removeClass("cassette3");
+				$("div").filter("#cassette").removeClass("cassette4");
+				$("div").filter("#cassette").addClass("cassette5");
+				break;
 		}
 	  
     if (play) {
